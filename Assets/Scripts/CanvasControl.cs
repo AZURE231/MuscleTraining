@@ -7,14 +7,18 @@ public class CanvasControl : MonoBehaviour
     [SerializeField] GameObject controlPanel;
     [SerializeField] GameObject upgradePanel;
     [SerializeField] GameObject storePanel;
+    [SerializeField] GameObject battlePanel;
 
     Animator upgradePanelAnimator;
+    Animator battltPanelAnimator;
     // Start is called before the first frame update
     void Start()
     {
         upgradePanelAnimator = controlPanel.GetComponent<Animator>();
+
         storePanel.SetActive(false);
         upgradePanel.SetActive(false);
+        battlePanel.SetActive(false);
     }
 
     public void ShowStorePanel()
@@ -36,5 +40,17 @@ public class CanvasControl : MonoBehaviour
         upgradePanelAnimator.SetBool("Close", true);
         storePanel.SetActive(false);
         upgradePanel.SetActive(false);
+    }
+
+    public void OpenBattlePanel()
+    {
+        battlePanel.SetActive(true);
+        battlePanel.GetComponent<Animator>().SetTrigger("Show");
+    }
+
+    public void CloseBattlePanel()
+    {
+        //battlePanel.GetComponent<Animator>().SetTrigger("Hide");
+        battlePanel.SetActive(false);
     }
 }
