@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c5b6f34eba78402482e93513b40bc04, type: 3}
+  m_Name: UpgradeInvDatabase
+  m_EditorClassIdentifier: 
+  slots:
+  - title: Click Muscle
+    art: {fileID: 21300000, guid: d810ff04bc5f146ff83a7929bd0371ff, type: 3}
+    count: 0
+    muscleCost: 50
+    clickPower: 1
+    autoClick: 0
+  - title: Auto Muscle
+    art: {fileID: 21300000, guid: 30cc6a3ed4ae44f0398a5098f6739b09, type: 3}
+    count: 0
+    muscleCost: 200
+    clickPower: 0
+    autoClick: 1
+  - title: Super Click
+    art: {fileID: 21300000, guid: 8050b4fa96d2546e3926423243d03f43, type: 3}
+    count: 0
+    muscleCost: 1000
+    clickPower: 10
+    autoClick: 0
+  - title: Muscle Farm
+    art: {fileID: 21300000, guid: 76dff24526e5a4a5db6772dc14a2297b, type: 3}
+    count: 0
+    muscleCost: 10000
+    clickPower: 0
+    autoClick: 5
+  - title: Giga Clicker
+    art: {fileID: 21300000, guid: 6f034cb1a28634f9b8d822d9d0db3abd, type: 3}
+    count: 0
+    muscleCost: 100000
+    clickPower: 100
+    autoClick: 0
+  - title: Click Factory
+    art: {fileID: 21300000, guid: 0db67d1cebfb54d93866cf00723ee88d, type: 3}
+    count: 0
+    muscleCost: 500000
+    clickPower: 0
+    autoClick: 100
