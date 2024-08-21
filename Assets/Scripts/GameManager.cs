@@ -7,12 +7,13 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public int muscleNumber { get; set; } = 0;
-    public int clickPower { get; set; } = 1;
+    public int muscleNumber = 0;
+    public int clickPower = 1;
     public int autoClicker = 0;
     public float power = 0f;
     public float powerDecreaseRate = 0.005f;
     public float powerIncreaseRate = 0.02f;
+    public int multiplier = 2;
 
 
     // Canva control
@@ -20,6 +21,17 @@ public class GameManager : MonoBehaviour
     public TMP_Text clickPowerText;
 
     [SerializeField] Slider slider;
+
+
+    public static GameManager instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
 
 
     // Start is called before the first frame update
@@ -39,7 +51,13 @@ public class GameManager : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Ended)
             {
+                // Increase power for each click
                 IncreasePower();
+                // power fever, x2 clickpower
+                if (power >= 0.8)
+                {
+                    IncreaseMuscle(clickPower * multiplier);
+                }
                 IncreaseMuscle(clickPower);
             }
 
