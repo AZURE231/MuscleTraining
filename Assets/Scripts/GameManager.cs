@@ -13,14 +13,16 @@ public class GameManager : MonoBehaviour
     public float power = 0f;
     public float powerDecreaseRate = 0.005f;
     public float powerIncreaseRate = 0.02f;
-    public int multiplier = 2;
+    public int multiplier = 1;
 
 
     // Canva control
     public TMP_Text muscleNumerText;
     public TMP_Text clickPowerText;
+    public TMP_Text multiplierText;
 
     [SerializeField] Slider slider;
+    [SerializeField] GameObject textPrefab;
 
 
     public static GameManager instance;
@@ -56,9 +58,15 @@ public class GameManager : MonoBehaviour
                 // power fever, x2 clickpower
                 if (power >= 0.8)
                 {
+                    multiplier = 2;
                     IncreaseMuscle(clickPower * multiplier);
                 }
+                else
+                {
+                    multiplier = 1;
+                }
                 IncreaseMuscle(clickPower);
+                CreateTextUp(touch.position);
             }
 
         }
@@ -115,4 +123,14 @@ public class GameManager : MonoBehaviour
         return results.Count > 1;
     }
 
+    void CreateTextUp(Vector2 position)
+    {
+        Instantiate(textPrefab, new Vector3(position.x, position.y), Quaternion.identity,
+            GameObject.FindGameObjectWithTag("Canvas").transform);
+    }
+
+    public void UpdateMultiplierText()
+    {
+        multiplierText.text = "x" + multiplier.ToString();
+    }
 }
