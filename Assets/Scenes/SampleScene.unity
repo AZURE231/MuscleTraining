@@ -4679,8 +4679,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -8.564819, y: -1821.8572}
-  m_SizeDelta: {x: 221.4724, y: 4237.3115}
+  m_AnchoredPosition: {x: -59.651, y: -5453.861}
+  m_SizeDelta: {x: 119.3, y: 11501.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1510596507
 CanvasRenderer:
@@ -4697,7 +4697,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510596504}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
   m_Name: 
@@ -4717,14 +4717,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 490
+    m_Left: 0
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
   m_StartCorner: 0
-  m_StartAxis: 0
-  m_CellSize: {x: 493.7, y: 2649.5}
+  m_StartAxis: 1
+  m_CellSize: {x: 1400, y: 2649.5}
   m_Spacing: {x: 0, y: -276}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -5644,7 +5644,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 1
   m_CellSize: {x: 1048.1, y: 397.67}
-  m_Spacing: {x: 0, y: 72.43}
+  m_Spacing: {x: 0, y: -119.69}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &2055268770
@@ -6404,6 +6404,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1510596505}
     m_Modifications:
+    - target: {fileID: 4249331605929454914, guid: 43950a890c031445aaa81837c7b39cf8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.00012207031
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249331605929454914, guid: 43950a890c031445aaa81837c7b39cf8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -92.57031
+      objectReference: {fileID: 0}
     - target: {fileID: 5765309256437237409, guid: 43950a890c031445aaa81837c7b39cf8, type: 3}
       propertyPath: m_Name
       value: Enemy
