@@ -90,7 +90,6 @@ public class GameManager : MonoBehaviour
             power -= powerDecreaseRate;
             power = Mathf.Clamp(power, 0f, slider.maxValue);
             slider.value = power;
-            Debug.Log(power);
         }
     }
 
