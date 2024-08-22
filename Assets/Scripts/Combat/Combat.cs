@@ -21,6 +21,8 @@ public class Combat : MonoBehaviour
     [SerializeField] TMP_Text enemyPointText;
     [SerializeField] TMP_Text playerPointText;
     [SerializeField] TMP_Text notification;
+
+    EnemyUI enemy;
     bool isCombat = false;
 
     public static Combat instance;
@@ -33,9 +35,9 @@ public class Combat : MonoBehaviour
         }
     }
 
-    public void SetUpCombat(int index)
+    public void SetUpCombat(int index, EnemyUI enemyUI)
     {
-        Debug.Log("Combat?");
+        enemy = enemyUI;
         fightPanel.SetActive(true);
         notification.text = "";
         enemyImage.sprite = enemies.GetEnemy(index).sprite;
@@ -102,6 +104,7 @@ public class Combat : MonoBehaviour
         enemies.GetEnemy(indexEnemy).SetWon();
         isCombat = false;
         StartCoroutine(WaitToCloseCombat());
+        enemy.SetHasWon(true);
 
         //fightPanel.SetActive(false);
         // Update UI?

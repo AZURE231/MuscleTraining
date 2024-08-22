@@ -11,8 +11,8 @@ public class EnemyUI : MonoBehaviour
     public Image enemyImage;
     public TMP_Text scoreText;
     public bool isCombat = false;
-    public GameObject fightButton;
     public int index;
+    public GameObject defeatedText;
 
     public void SetIndex(int _index)
     {
@@ -38,14 +38,14 @@ public class EnemyUI : MonoBehaviour
     {
         if (hasWon)
         {
-            fightButton.SetActive(false);
+            defeatedText.SetActive(true);
         }
     }
 
     public void StartBattle()
     {
         // Open combat panel
-        Combat.instance.SetUpCombat(index);
+        Combat.instance.SetUpCombat(index, this);
         Debug.Log("clicked!!!");
     }
 
