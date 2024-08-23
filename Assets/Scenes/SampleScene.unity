@@ -1912,6 +1912,7 @@ GameObject:
   - component: {fileID: 660307490}
   - component: {fileID: 660307492}
   - component: {fileID: 660307491}
+  - component: {fileID: 660307493}
   m_Layer: 5
   m_Name: EnemyImage
   m_TagString: Untagged
@@ -1976,6 +1977,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 660307489}
   m_CullTransparentMesh: 1
+--- !u!114 &660307493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660307489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69980e098ecaa43ddb66a8fc99305b8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 40
+  amount: 20
+  shakeDuration: 0.5
 --- !u!1 &688167419
 GameObject:
   m_ObjectHideFlags: 0
@@ -2617,13 +2633,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies: {fileID: 11400000, guid: 54146b528ae6e4fc1bbbd24a8e89ce8d, type: 2}
+  enemyAttack: 0
+  playerAttack: 0
   timer: {fileID: 2145603432}
   fightPanel: {fileID: 1467996365}
   enemyImage: {fileID: 660307491}
+  playerImage: {fileID: 1143034540}
   enemyPointText: {fileID: 1293997163}
   playerPointText: {fileID: 726967461}
   notification: {fileID: 1547836239}
   resultAnimator: {fileID: 1467996367}
+  enemyShake: {fileID: 660307493}
+  playerShake: {fileID: 1143034542}
+  textPrefab: {fileID: 1836705092213490942, guid: dd7791583dc5f426fab36c19d60c375c, type: 3}
 --- !u!1 &881864971
 GameObject:
   m_ObjectHideFlags: 0
@@ -3506,6 +3528,7 @@ GameObject:
   - component: {fileID: 1143034539}
   - component: {fileID: 1143034541}
   - component: {fileID: 1143034540}
+  - component: {fileID: 1143034542}
   m_Layer: 5
   m_Name: PlayerImage
   m_TagString: Untagged
@@ -3570,6 +3593,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1143034538}
   m_CullTransparentMesh: 1
+--- !u!114 &1143034542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143034538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69980e098ecaa43ddb66a8fc99305b8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 40
+  amount: 20
+  shakeDuration: 0.5
 --- !u!1 &1173897649
 GameObject:
   m_ObjectHideFlags: 0
@@ -5565,6 +5603,18 @@ MonoBehaviour:
   - name: Lose
     loop: 0
     clip: {fileID: 8300000, guid: 2efa776c9146d4d1391c608e5c146753, type: 3}
+    volume: 0.6
+    pitch: 1
+    source: {fileID: 0}
+  - name: EnemyHit
+    loop: 0
+    clip: {fileID: 8300000, guid: a135a7dc574614f5ea30a75c2ed9b63a, type: 3}
+    volume: 0.6
+    pitch: 1
+    source: {fileID: 0}
+  - name: PlayerHit
+    loop: 0
+    clip: {fileID: 8300000, guid: 3f77c491a20d94c64964d734fd411295, type: 3}
     volume: 0.6
     pitch: 1
     source: {fileID: 0}

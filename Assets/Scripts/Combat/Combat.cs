@@ -9,8 +9,8 @@ public class Combat : MonoBehaviour
     [SerializeField] EnemiesDatabase enemies;
     private float playerPoint;
     private float enemyPoint;
-    private float enemyAttack;
-    private float playerAttack;
+    public float enemyAttack;
+    public float playerAttack;
     private int indexEnemy;
 
     [SerializeField] GameObject timer;
@@ -18,10 +18,14 @@ public class Combat : MonoBehaviour
     [Header("Fight Panel")]
     [SerializeField] GameObject fightPanel;
     [SerializeField] Image enemyImage;
+    [SerializeField] Image playerImage;
     [SerializeField] TMP_Text enemyPointText;
     [SerializeField] TMP_Text playerPointText;
     [SerializeField] TMP_Text notification;
     [SerializeField] Animator resultAnimator;
+    [SerializeField] ObjectShake enemyShake;
+    [SerializeField] ObjectShake playerShake;
+    [SerializeField] GameObject textPrefab;
 
     EnemyUI enemy;
     bool isCombat = false;
@@ -60,6 +64,13 @@ public class Combat : MonoBehaviour
         if (!isCombat) return;
         enemyPoint -= playerAttack;
         enemyPointText.text = enemyPoint.ToString();
+        FindObjectOfType<AudioManager>().Play("EnemyHit");
+        enemyShake.StartShaking();
+        var a = Instantiate(textPrefab, enemyPointText.transform.position, Quaternion.identity,
+            GameObject.FindGameObjectWithTag("Canvas").transform);
+        a.GetComponentInChildren<DetroyOnAnimationEnd>().muscleNumber.text =
+            "-" + playerAttack.ToString();
+        StartCoroutine(FlashRed(enemyImage));
 
     }
 
@@ -70,6 +81,13 @@ public class Combat : MonoBehaviour
             yield return new WaitForSeconds(1);
             playerPoint -= enemyAttack;
             playerPointText.text = playerPoint.ToString();
+            FindObjectOfType<AudioManager>().Play("PlayerHit");
+            playerShake.StartShaking();
+            var a = Instantiate(textPrefab, playerPointText.transform.position, Quaternion.identity,
+            GameObject.FindGameObjectWithTag("Canvas").transform);
+            a.GetComponentInChildren<DetroyOnAnimationEnd>().muscleNumber.text =
+                "-" + enemyAttack.ToString();
+            StartCoroutine(FlashRed(playerImage));
         }
     }
 
@@ -134,5 +152,10 @@ public class Combat : MonoBehaviour
         fightPanel.SetActive(false);
     }
 
-
+    IEnumerator FlashRed(Image img)
+    {
+        img.color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        img.color = Color.white;
+    }
 }

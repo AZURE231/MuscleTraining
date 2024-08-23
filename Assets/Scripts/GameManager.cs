@@ -125,8 +125,10 @@ public class GameManager : MonoBehaviour
 
     void CreateTextUp(Vector2 position)
     {
-        Instantiate(textPrefab, new Vector3(position.x, position.y), Quaternion.identity,
+        var a = Instantiate(textPrefab, new Vector3(position.x, position.y), Quaternion.identity,
             GameObject.FindGameObjectWithTag("Canvas").transform);
+        a.GetComponentInChildren<DetroyOnAnimationEnd>().muscleNumber.text =
+            (clickPower * multiplier).ToString() + " Muscle!";
     }
 
     public void UpdateMultiplierText()

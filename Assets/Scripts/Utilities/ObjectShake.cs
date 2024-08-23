@@ -29,6 +29,7 @@ public class ObjectShake : MonoBehaviour
 
     public void StartShaking()
     {
+        Debug.Log("Start shaking");
         shakeTimer = shakeDuration; // Set the shake timer to the shake duration
     }
 }

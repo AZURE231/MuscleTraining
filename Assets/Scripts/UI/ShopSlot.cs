@@ -51,7 +51,10 @@ public class ShopSlot : MonoBehaviour
             GameManager.instance.mulTemp = multiplier;
             GameManager.instance.UpdateMultiplierText();
         }
-
+        //else
+        //{
+        //    transform.GetComponent<ObjectShake>().StartShaking();
+        //}
 
     }
 }

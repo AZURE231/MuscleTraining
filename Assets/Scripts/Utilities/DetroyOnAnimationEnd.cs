@@ -5,15 +5,19 @@ using TMPro;
 
 public class DetroyOnAnimationEnd : MonoBehaviour
 {
-    [SerializeField] TMP_Text muscleNumber;
-    private void Start()
-    {
-        muscleNumber.text = (GameManager.instance.clickPower * GameManager.instance.multiplier)
-            .ToString() + " Muscle!";
-    }
+    [SerializeField] public TMP_Text muscleNumber;
 
     public void DestroyParent()
     {
+        if (muscleNumber != null)
+        {
+            Debug.Log("muscleNumber is assigned correctly");
+        }
+        else
+        {
+            Debug.Log("muscleNumber is not assigned");
+        }
+
         GameObject parent = gameObject.transform.parent.gameObject;
         Destroy(parent);
     }
