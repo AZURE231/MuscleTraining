@@ -9,15 +9,6 @@ public class DetroyOnAnimationEnd : MonoBehaviour
 
     public void DestroyParent()
     {
-        if (muscleNumber != null)
-        {
-            Debug.Log("muscleNumber is assigned correctly");
-        }
-        else
-        {
-            Debug.Log("muscleNumber is not assigned");
-        }
-
         GameObject parent = gameObject.transform.parent.gameObject;
         Destroy(parent);
     }

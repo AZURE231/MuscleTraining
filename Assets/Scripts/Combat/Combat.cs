@@ -27,6 +27,8 @@ public class Combat : MonoBehaviour
     [SerializeField] ObjectShake playerShake;
     [SerializeField] GameObject textPrefab;
 
+
+
     EnemyUI enemy;
     bool isCombat = false;
 

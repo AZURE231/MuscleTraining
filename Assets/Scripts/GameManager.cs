@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] Slider slider;
     [SerializeField] GameObject textPrefab;
 
+    [Header("Particle Effect")]
+    [SerializeField] GameObject rain;
+
 
     public static GameManager instance;
 
@@ -48,6 +51,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (power >= 0.8)
+        {
+            rain.SetActive(true);
+        }
+        else
+        {
+            rain.SetActive(false);
+        }
         if (IsPointerOverUIObject()) return;
         if (Input.touchCount > 0)
         {
@@ -71,6 +82,7 @@ public class GameManager : MonoBehaviour
             }
 
         }
+
 
     }
 
@@ -111,7 +123,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateText()
     {
-        muscleNumerText.text = muscleNumber.ToString();
+        muscleNumerText.text = muscleNumber.ToString("#,#");
         clickPowerText.text = clickPower.ToString() + "";
     }
 
