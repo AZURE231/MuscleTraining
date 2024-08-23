@@ -431,6 +431,7 @@ GameObject:
   - component: {fileID: 1376244922931693247}
   - component: {fileID: 3167049221177291975}
   - component: {fileID: 9118062606294851185}
+  - component: {fileID: 1416954609285122203}
   m_Layer: 5
   m_Name: UpgradeSlot
   m_TagString: Untagged
@@ -581,6 +582,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1416954609285122203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6458007687660813115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69980e098ecaa43ddb66a8fc99305b8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 40
+  amount: 10
+  shakeDuration: 1
 --- !u!1 &7596757607826529041
 GameObject:
   m_ObjectHideFlags: 0

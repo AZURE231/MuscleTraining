@@ -83,6 +83,11 @@ public class UpgradeSlot : MonoBehaviour
             GameManager.instance.UpdateText();
             count += 1;
             countText.text = count.ToString();
+            FindObjectOfType<AudioManager>().Play("Buy");
+        }
+        else
+        {
+            transform.GetComponent<ObjectShake>().StartShaking();
         }
     }
 }

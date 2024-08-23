@@ -21,6 +21,7 @@ public class Combat : MonoBehaviour
     [SerializeField] TMP_Text enemyPointText;
     [SerializeField] TMP_Text playerPointText;
     [SerializeField] TMP_Text notification;
+    [SerializeField] Animator resultAnimator;
 
     EnemyUI enemy;
     bool isCombat = false;
@@ -39,6 +40,7 @@ public class Combat : MonoBehaviour
     {
         enemy = enemyUI;
         fightPanel.SetActive(true);
+        timer.SetActive(true);
         notification.text = "";
         enemyImage.sprite = enemies.GetEnemy(index).sprite;
         enemyPointText.text = enemies.GetEnemy(index).point.ToString();
@@ -46,8 +48,8 @@ public class Combat : MonoBehaviour
 
         enemyPoint = enemies.GetEnemy(index).point;
         playerPoint = GameManager.instance.muscleNumber;
-        enemyAttack = enemyPoint / 20;
-        playerAttack = playerPoint / 20;
+        enemyAttack = (int)enemyPoint / 20;
+        playerAttack = (int)playerPoint / 20;
         isCombat = true;
         StartCoroutine(EnemyAttack());
 
@@ -103,8 +105,11 @@ public class Combat : MonoBehaviour
         notification.text = "YOU WON!";
         enemies.GetEnemy(indexEnemy).SetWon();
         isCombat = false;
-        StartCoroutine(WaitToCloseCombat());
         enemy.SetHasWon(true);
+        resultAnimator.SetTrigger("Win");
+        FindObjectOfType<AudioManager>().Play("Win");
+        StartCoroutine(WaitToCloseCombat());
+
 
         //fightPanel.SetActive(false);
         // Update UI?
@@ -116,7 +121,10 @@ public class Combat : MonoBehaviour
         notification.text = "YOU LOST!";
         timer.SetActive(false);
         isCombat = false;
+        resultAnimator.SetTrigger("Lose");
+        FindObjectOfType<AudioManager>().Play("Lose");
         StartCoroutine(WaitToCloseCombat());
+
         //fightPanel.SetActive(false);
     }
 

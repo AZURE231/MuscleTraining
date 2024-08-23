@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public float powerDecreaseRate = 0.005f;
     public float powerIncreaseRate = 0.02f;
     public int multiplier = 1;
+    public int mulTemp = 2;
 
 
     // Canva control
@@ -55,17 +56,16 @@ public class GameManager : MonoBehaviour
             {
                 // Increase power for each click
                 IncreasePower();
-                // power fever, x2 clickpower
+                // power fever, xmultiplier clickpower
                 if (power >= 0.8)
                 {
-                    multiplier = 2;
-                    IncreaseMuscle(clickPower * multiplier);
+                    multiplier = mulTemp;
                 }
                 else
                 {
                     multiplier = 1;
                 }
-                IncreaseMuscle(clickPower);
+                IncreaseMuscle(clickPower * multiplier);
                 CreateTextUp(touch.position);
                 FindObjectOfType<AudioManager>().Play("TapSound");
             }
@@ -131,6 +131,6 @@ public class GameManager : MonoBehaviour
 
     public void UpdateMultiplierText()
     {
-        multiplierText.text = "x" + multiplier.ToString();
+        multiplierText.text = "x" + mulTemp.ToString();
     }
 }

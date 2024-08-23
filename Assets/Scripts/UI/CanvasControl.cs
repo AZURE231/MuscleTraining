@@ -23,6 +23,7 @@ public class CanvasControl : MonoBehaviour
 
     public void ShowStorePanel()
     {
+        FindObjectOfType<AudioManager>().Play("ScrollStone");
         storePanel.SetActive(true);
         upgradePanelAnimator.SetBool("Open", true);
         upgradePanelAnimator.SetBool("Close", false);
@@ -30,6 +31,7 @@ public class CanvasControl : MonoBehaviour
 
     public void ShowUpgradePanel()
     {
+        FindObjectOfType<AudioManager>().Play("ScrollStone");
         upgradePanel.SetActive(true);
         upgradePanelAnimator.SetBool("Open", true);
         upgradePanelAnimator.SetBool("Close", false);
@@ -37,6 +39,7 @@ public class CanvasControl : MonoBehaviour
 
     public void CloseUpgradePanel()
     {
+        FindObjectOfType<AudioManager>().Play("ScrollStone");
         upgradePanelAnimator.SetBool("Close", true);
         storePanel.SetActive(false);
         upgradePanel.SetActive(false);

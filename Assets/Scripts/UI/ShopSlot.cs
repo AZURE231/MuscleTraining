@@ -48,7 +48,7 @@ public class ShopSlot : MonoBehaviour
         {
             isPurchased = true;
             purchaseButton.SetActive(false);
-            GameManager.instance.multiplier = multiplier;
+            GameManager.instance.mulTemp = multiplier;
             GameManager.instance.UpdateMultiplierText();
         }
 
