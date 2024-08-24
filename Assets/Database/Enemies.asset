@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - title: Cat
-    point: 150
+    point: 10000
     sprite: {fileID: 21300000, guid: 9b840dcb04b1b4638a4d98976533edf3, type: 3}
     hasWon: 1
   - title: Dog
     point: 300000
-    sprite: {fileID: 21300000, guid: d810ff04bc5f146ff83a7929bd0371ff, type: 3}
+    sprite: {fileID: 21300000, guid: 88ddc27daadff442d94ae1912855480e, type: 3}
     hasWon: 0
-  - title: Lmao
+  - title: Bear
     point: 10000000
-    sprite: {fileID: 21300000, guid: 216c3315fc11d41729fa495263edc3d4, type: 3}
+    sprite: {fileID: 21300000, guid: c5619e5e79c40468e9c05371ffe1866d, type: 3}
     hasWon: 0

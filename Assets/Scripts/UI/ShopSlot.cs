@@ -28,6 +28,7 @@ public class ShopSlot : MonoBehaviour
         titleText.text = title;
         descriptionText.text = description;
         imageObject.sprite = sprite;
+        costText.text = muscleCost.ToString();
     }
 
     void Update()
@@ -48,6 +49,7 @@ public class ShopSlot : MonoBehaviour
         {
             isPurchased = true;
             purchaseButton.SetActive(false);
+            GameManager.instance.muscleNumber -= muscleCost;
             GameManager.instance.mulTemp = multiplier;
             GameManager.instance.UpdateMultiplierText();
         }

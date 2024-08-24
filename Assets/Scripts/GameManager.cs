@@ -30,7 +30,8 @@ public class GameManager : MonoBehaviour
 
     [Header("CharacterAnimation")]
     [SerializeField] GameObject characterPushup;
-    int countClick = 0;
+    [SerializeField] GameObject characterDumbbell;
+    [SerializeField] GameObject characterWeight;
 
 
     public static GameManager instance;
@@ -63,6 +64,9 @@ public class GameManager : MonoBehaviour
         {
             rain.SetActive(false);
         }
+
+
+
         if (IsPointerOverUIObject()) return;
         if (Input.touchCount > 0)
         {
@@ -71,7 +75,18 @@ public class GameManager : MonoBehaviour
             {
                 // Increase power for each click
                 IncreasePower();
-                characterPushup.GetComponent<Animator>().SetTrigger("Push");
+                switch (mulTemp)
+                {
+                    case 3:
+                        characterDumbbell.GetComponent<Animator>().SetTrigger("Push");
+                        break;
+                    case 4:
+                        characterWeight.GetComponent<Animator>().SetTrigger("Push");
+                        break;
+                    default:
+                        characterPushup.GetComponent<Animator>().SetTrigger("Push");
+                        break;
+                }
                 // power fever, xmultiplier clickpower
                 if (power >= 0.8)
                 {
@@ -81,6 +96,7 @@ public class GameManager : MonoBehaviour
                 {
                     multiplier = 1;
                 }
+
                 IncreaseMuscle(clickPower * multiplier);
                 CreateTextUp(touch.position);
                 FindObjectOfType<AudioManager>().Play("TapSound");
@@ -129,14 +145,15 @@ public class GameManager : MonoBehaviour
     public void UpdateText()
     {
         muscleNumerText.text = muscleNumber.ToString("#,#");
-        clickPowerText.text = clickPower.ToString() + "";
+        clickPowerText.text = clickPower.ToString() + " Muscle per click";
     }
 
     private bool IsPointerOverUIObject()
     {
         PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
         eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-        List<RaycastResult> results = new List<RaycastResult>(); EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
         return results.Count > 1;
     }
 
@@ -151,5 +168,28 @@ public class GameManager : MonoBehaviour
     public void UpdateMultiplierText()
     {
         multiplierText.text = "x" + mulTemp.ToString();
+    }
+
+    public void UpdateCharacterAnimation()
+    {
+        characterPushup.SetActive(false);
+        characterDumbbell.SetActive(false);
+        characterWeight.SetActive(false);
+
+        switch (mulTemp)
+        {
+            case 3:
+                characterDumbbell.SetActive(true);
+                characterDumbbell.GetComponent<Animator>().SetTrigger("Push");
+                break;
+            case 4:
+                characterWeight.SetActive(true);
+                characterWeight.GetComponent<Animator>().SetTrigger("Push");
+                break;
+            default:
+                characterPushup.SetActive(true);
+                characterPushup.GetComponent<Animator>().SetTrigger("Push");
+                break;
+        }
     }
 }
