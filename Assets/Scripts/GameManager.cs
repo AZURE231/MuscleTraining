@@ -28,6 +28,10 @@ public class GameManager : MonoBehaviour
     [Header("Particle Effect")]
     [SerializeField] GameObject rain;
 
+    [Header("CharacterAnimation")]
+    [SerializeField] GameObject characterPushup;
+    int countClick = 0;
+
 
     public static GameManager instance;
 
@@ -67,6 +71,7 @@ public class GameManager : MonoBehaviour
             {
                 // Increase power for each click
                 IncreasePower();
+                characterPushup.GetComponent<Animator>().SetTrigger("Push");
                 // power fever, xmultiplier clickpower
                 if (power >= 0.8)
                 {
