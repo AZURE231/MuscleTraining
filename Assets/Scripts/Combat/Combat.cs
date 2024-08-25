@@ -44,6 +44,7 @@ public class Combat : MonoBehaviour
 
     public void SetUpCombat(int index, EnemyUI enemyUI)
     {
+        indexEnemy = index;
         enemy = enemyUI;
         fightPanel.SetActive(true);
         timer.SetActive(true);

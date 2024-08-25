@@ -63,11 +63,11 @@ public class UpgradeSlot : MonoBehaviour
         string des = "";
         if (clickPower != 0)
         {
-            des += "+" + clickPower.ToString() + " Click power/n";
+            des += "+" + clickPower.ToString() + " Click power";
         }
         if (autoClick != 0)
         {
-            des += "+" + autoClick.ToString() + " Auto click/n";
+            des += "+" + autoClick.ToString() + " Auto click";
         }
         return des;
     }

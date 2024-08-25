@@ -16,7 +16,7 @@ MonoBehaviour:
   - title: Cat
     point: 10000
     sprite: {fileID: 21300000, guid: 9b840dcb04b1b4638a4d98976533edf3, type: 3}
-    hasWon: 1
+    hasWon: 0
   - title: Dog
     point: 300000
     sprite: {fileID: 21300000, guid: 88ddc27daadff442d94ae1912855480e, type: 3}
