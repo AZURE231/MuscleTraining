@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
                 {
                     multiplier = 1;
                 }
-
+                AchievementManager.instance.TrackClick();
                 IncreaseMuscle(clickPower * multiplier);
                 CreateTextUp(touch.position);
                 FindObjectOfType<AudioManager>().Play("TapSound");

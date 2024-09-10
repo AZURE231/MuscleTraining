@@ -74,6 +74,7 @@ public class UpgradeSlot : MonoBehaviour
 
     public void SpendMuscle()
     {
+        AchievementManager.instance.TrackFirstPurchase();
         if (GameManager.instance.muscleNumber >= muscleCost && count <= 10)
         {
             isUnlocked = true;
