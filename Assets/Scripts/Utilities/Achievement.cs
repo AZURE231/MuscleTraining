@@ -50,9 +50,13 @@ public class AchievementManager : MonoBehaviour
     private void ShowAchievementPopup(string title, string message)
     {
         var popup = Instantiate(achievementPopupPrefab, canvasTransform);
+        // Set the popup position at the top of the canvas
+        RectTransform popupRectTransform = popup.GetComponent<RectTransform>();
+
+        // Positioning at the top center
+        popupRectTransform.anchoredPosition = new Vector2(0, -300);
         popup.transform.Find("Title").GetComponent<TMP_Text>().text = title;
         popup.transform.Find("Description").GetComponent<TMP_Text>().text = message;
-        Destroy(popup, 3f);
     }
 }
 

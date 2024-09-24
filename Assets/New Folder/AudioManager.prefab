@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4392596560403471263
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7626927300259785639}
+  - component: {fileID: 8811444809932949995}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7626927300259785639
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4392596560403471263}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -273.2363, y: 1116.04, z: -28.23928}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8811444809932949995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4392596560403471263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae3efd61c77034839be08ffb979575e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: TapSound
+    loop: 0
+    clip: {fileID: 8300000, guid: 6eebe362f98b248e49b9eb2b1661052c, type: 3}
+    volume: 0.6
+    pitch: 1
+    source: {fileID: 0}
+  - name: BackGround
+    loop: 1
+    clip: {fileID: 8300000, guid: 0ccdc4cb6a728461f96d1a4b0d675a59, type: 3}
+    volume: 0.15
+    pitch: 1
+    source: {fileID: 0}
+  - name: ScrollStone
+    loop: 0
+    clip: {fileID: 8300000, guid: 979896e0421c94e3bb9c0ac64b82b361, type: 3}
+    volume: 0.6
+    pitch: 1
+    source: {fileID: 0}
+  - name: Buy
+    loop: 0
+    clip: {fileID: 8300000, guid: f3fdfa13c966046bdbd207e5c61235f5, type: 3}
+    volume: 0.6
+    pitch: 1
+    source: {fileID: 0}
+  - name: Win
+    loop: 0
+    clip: {fileID: 8300000, guid: 49e6baabf973c410082a3cc2f3077e84, type: 3}
+    volume: 0.6
+    pitch: 1
+    source: {fileID: 0}
+  - name: Lose
+    loop: 0
+    clip: {fileID: 8300000, guid: 2efa776c9146d4d1391c608e5c146753, type: 3}
+    volume: 0.6
+    pitch: 1
+    source: {fileID: 0}
+  - name: EnemyHit
+    loop: 0
+    clip: {fileID: 8300000, guid: a135a7dc574614f5ea30a75c2ed9b63a, type: 3}
+    volume: 0.6
+    pitch: 1
+    source: {fileID: 0}
+  - name: PlayerHit
+    loop: 0
+    clip: {fileID: 8300000, guid: 3f77c491a20d94c64964d734fd411295, type: 3}
+    volume: 0.6
+    pitch: 1
+    source: {fileID: 0}

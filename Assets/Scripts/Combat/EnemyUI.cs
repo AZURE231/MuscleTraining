@@ -11,7 +11,7 @@ public class EnemyUI : MonoBehaviour
     public Image enemyImage;
     public TMP_Text scoreText;
     public bool isCombat = false;
-    public int index;
+    private int index;
     public GameObject defeatedText;
 
     public void SetIndex(int _index)

@@ -65,44 +65,39 @@ public class GameManager : MonoBehaviour
             rain.SetActive(false);
         }
 
-
-
-        if (IsPointerOverUIObject()) return;
-        if (Input.touchCount > 0)
+        if (Input.GetMouseButtonUp(0) && !EventSystem.current.IsPointerOverGameObject())
         {
-            Touch touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Began)
+            Vector2 mousePos = Input.mousePosition;
+            // Increase power for each click
+            IncreasePower();
+            switch (mulTemp)
             {
-                // Increase power for each click
-                IncreasePower();
-                switch (mulTemp)
-                {
-                    case 3:
-                        characterDumbbell.GetComponent<Animator>().SetTrigger("Push");
-                        break;
-                    case 4:
-                        characterWeight.GetComponent<Animator>().SetTrigger("Push");
-                        break;
-                    default:
-                        characterPushup.GetComponent<Animator>().SetTrigger("Push");
-                        break;
-                }
-                // power fever, xmultiplier clickpower
-                if (power >= 0.8)
-                {
-                    multiplier = mulTemp;
-                }
-                else
-                {
-                    multiplier = 1;
-                }
-                AchievementManager.instance.TrackClick();
-                IncreaseMuscle(clickPower * multiplier);
-                CreateTextUp(touch.position);
-                FindObjectOfType<AudioManager>().Play("TapSound");
+                case 3:
+                    characterDumbbell.GetComponent<Animator>().SetTrigger("Push");
+                    break;
+                case 4:
+                    characterWeight.GetComponent<Animator>().SetTrigger("Push");
+                    break;
+                default:
+                    characterPushup.GetComponent<Animator>().SetTrigger("Push");
+                    break;
             }
-
+            // power fever, xmultiplier clickpower
+            if (power >= 0.8)
+            {
+                multiplier = mulTemp;
+            }
+            else
+            {
+                multiplier = 1;
+            }
+            AchievementManager.instance.TrackClick();
+            IncreaseMuscle(clickPower * multiplier);
+            CreateTextUp(mousePos);
+            FindObjectOfType<AudioManager>().Play("TapSound");
         }
+
+
 
 
     }
